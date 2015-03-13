@@ -1,0 +1,28 @@
+<html>
+<head>
+<title>Tournament Admin Panel</title>
+{alert}
+</head>
+<body>
+<h1>Tournament Admin Panel</h1>
+<h3>Report a Score</h3>
+<small>Any existing scores will be overwritten.</small><br><br>
+<form method="POST" action="/admin.php">
+Team Number: <input type="text" name="team"><br><br>
+Score Type:<br>
+<input type="radio" name="type" value="program" checked>Programming Skills<br>
+<input type="radio" name="type" value="driver">Driver Skills<br><br>
+Points: <input type="text" name="score"><br><br> <!-- This is the number of points they scored -->
+<input type="hidden" name="action" value="report-score">
+<input type="submit" value="Submit">
+</form>
+<br>
+<h3>Change Number of Qualifying Teams</h3>
+<form method="POST" action="/admin.php">
+<input type="text" name="number" value="{teams}"> <!-- This is the number of teams that will qualify for the bracket. Probably 32. Current value will be filled by PHP. -->
+<input type="hidden" name="action" value="update-numqualifying">
+<input type="submit" value="Update">
+</form><br>
+<small>Built in 24 hours by the Swampbotics software team (<a href="https://twitter.com/kberzinch">@kberzinch</a> and <a href="https://twitter.com/@Mureed_Sultan_">@Mureed_Sultan_</a>), hosted by <a href="https://uniquetech.co">Unique Tech</a>.</small>
+</body>
+</html>
