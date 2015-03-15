@@ -3,6 +3,8 @@ namespace TSAState;
 
 require "../db.class.php";
 
+header('Content-Type: application/json');
+
 // OUTPUT PAGE
 $db = new Db();
 $numqualifying = $db->query('SELECT value FROM settings');
