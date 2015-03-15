@@ -33,7 +33,7 @@ jQuery(function($) {
             '<td>' + data[f]['total'] + '</td>' +
             '</tr>';
 
-          $('#append').empty().append(Html);
+          $('#append').append(Html);
         });
 
       });
