@@ -47,88 +47,125 @@
             </div>
             <div class="wrap">
                 <div class="container">
-                  <div class="row">
-                    <div class="col-sm-6"></div>
-                    <div class="col-sm-6"><div class="form-wrap">
-                        <div data-animation="fadeInUp" data-animation-delay=".6s">
-                            <div class="row nav-step">
-                                <div class="col-xs-6 active">
-                                    <span></span>
+                    <div class="row">
+
+                        <div class="col-sm-6">
+                            <div data-animation="bounceInRight" data-animation-delay=".2s">
+                                <div class="row">
+                                    <ul class="page-container">
+                                        <li class="current">
+                                            <form>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" placeholder="Team Number">
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-md-6" style="padding-left: 0px; height: 34px">
+                                                        <input type="radio" name="type"> Programming
+                                                    </div>
+                                                    <div class="col-md-6" style="padding-right: 0px;">
+                                                        <input type="radio" name="type"> Driving
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" placeholder="Score">
+                                                </div>
+                                            </form>
+                                        </li>
+                                    </ul>
                                 </div>
-                                <div class="col-xs-6">
-                                    <span></span>
+
+                                <div class="page-footer">
+                                    <div class="row btn-wrap">
+                                        <div class="col-xs-6" id="submit">
+                                            <button class="btn btn-block nav-step-btn" type="submit">Submit</button>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row nav-step-label">
-                                <div class="col-xs-6">Score</div>
-                                <div class="col-xs-6">Confirm</div>
                             </div>
                         </div>
 
-                        <div data-animation="bounceInLeft" data-animation-delay=".2s">
-                            <div class="row">
-                                <ul class="page-container">
-                                    <li class="current">
-                                        <form>
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="Team Number">
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="col-md-6" style="padding-left: 0px; height: 34px">
-                                                    <input type="radio" name="type"> Programming
+                        <div class="col-sm-6">
+                            <div class="form-wrap">
+                                <div data-animation="fadeInUp" data-animation-delay=".6s">
+                                    <div class="row nav-step">
+                                        <div class="col-xs-6 active">
+                                            <span></span>
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <span></span>
+                                        </div>
+                                    </div>
+                                    <div class="row nav-step-label">
+                                        <div class="col-xs-6">Score</div>
+                                        <div class="col-xs-6">Confirm</div>
+                                    </div>
+                                </div>
+
+                                <div data-animation="bounceInRight" data-animation-delay=".2s">
+                                    <div class="row">
+                                        <ul class="page-container">
+                                            <li class="current">
+                                                <form>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="Team Number">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="col-md-6" style="padding-left: 0px; height: 34px">
+                                                            <input type="radio" name="type"> Programming
+                                                        </div>
+                                                        <div class="col-md-6" style="padding-right: 0px;">
+                                                            <input type="radio" name="type"> Driving
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="Score">
+                                                    </div>
+                                                </form>
+                                            </li>
+                                            <li>
+                                                <span>Confirm details before you submit.</span>
+                                                <div class="step-confirm">
+                                                    <div class="row">
+                                                        <div class="col-xs-5">Team #:</div>
+                                                        <div class="col-xs-5"></div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-xs-5">Type:</div>
+                                                        <div class="col-xs-5"></div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-xs-5">Score:</div>
+                                                        <div class="col-xs-5"></div>
+                                                    </div>
                                                 </div>
-                                                <div class="col-md-6" style="padding-right: 0px;">
-                                                  <input type="radio" name="type"> Driving
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="Score">
-                                            </div>
-                                        </form>
-                                    </li>
-                                    <li>
-                                        <span>Confirm details before you submit.</span>
-                                        <div class="step-confirm">
-                                            <div class="row">
-                                                <div class="col-xs-5">Team #:</div>
-                                                <div class="col-xs-5"></div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-xs-5">Type:</div>
-                                                <div class="col-xs-5"></div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-xs-5">Score:</div>
-                                                <div class="col-xs-5"></div>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="page-footer">
+                                        <div class="row step-wrap">
+                                            <div class="col-xs-12">
+                                                <span>
+                                                    <span id="stepNo"></span> of 2</span>
                                             </div>
                                         </div>
-                                    </li>
-                                </ul>
-                            </div>
+                                        <div class="row btn-wrap">
+                                            <div class="col-xs-6" id="prev">
+                                                <button class="btn btn-block nav-step-btn">Previous</button>
+                                            </div>
+                                            <div class="col-xs-6" id="next">
+                                                <button class="btn btn-block nav-step-btn">Next</button>
+                                            </div>
+                                            <div class="col-xs-6" id="submit">
+                                                <button class="btn btn-block nav-step-btn" type="submit">Submit</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
-                            <div class="page-footer">
-                                <div class="row step-wrap">
-                                    <div class="col-xs-12">
-                                        <span>
-                                            <span id="stepNo"></span> of 2</span>
-                                    </div>
-                                </div>
-                                <div class="row btn-wrap">
-                                    <div class="col-xs-6" id="prev">
-                                        <button class="btn btn-block nav-step-btn">Previous</button>
-                                    </div>
-                                    <div class="col-xs-6" id="next">
-                                        <button class="btn btn-block nav-step-btn">Next</button>
-                                    </div>
-                                    <div class="col-xs-6" id="submit">
-                                        <button class="btn btn-block nav-step-btn" type="submit">Submit</button>
-                                    </div>
-                                </div>
                             </div>
                         </div>
-
-                    </div></div>
-                  </div>
+                    </div>
 
                 </div>
             </div>
