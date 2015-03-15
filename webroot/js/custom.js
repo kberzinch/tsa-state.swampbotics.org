@@ -22,7 +22,7 @@ jQuery(function($) {
 
         console.log();
 
-        $('#append').empty().fadeOut();
+        $('#append').empty();
         $(data).each(function(f) {
           var Html =
             '<tr>' +
@@ -36,7 +36,6 @@ jQuery(function($) {
 
           $('#append').append(Html);
         });
-        $('#append').fadeIn();
 
       });
       setTimeout(update, 5000);
