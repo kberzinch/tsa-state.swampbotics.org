@@ -1,0 +1,23 @@
+.table-custom thead th {
+  text-align: center !important;
+  border-bottom: 2px solid #D4862D !important; }
+.table-custom tbody tr:nth-child(odd) td, .table-custom tbody tr:nth-child(odd) th {
+  background-color: #EDA046; }
+.table-custom tbody tr:nth-child(even):hover td, .table-custom tbody tr:nth-child(even):hover th {
+  -webkit-transition: all 0.1s ease-in-out;
+  -moz-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+  background-color: rgba(212, 134, 45, 0.1); }
+.table-custom tbody tr:last-child td, .table-custom tbody tr:last-child th {
+  border-bottom: none !important; }
+.table-custom tbody tr td, .table-custom tbody tr th {
+  border-bottom: 1px solid #D4862D !important;
+  border-right: 1px solid #D4862D;
+  text-align: center;
+  width: 14%; }
+  .table-custom tbody tr td:last-child, .table-custom tbody tr th:last-child {
+    border-right: none !important; }
+  .table-custom tbody tr td:nth-child(3), .table-custom tbody tr th:nth-child(3) {
+    width: 30%; }
+
+/*# sourceMappingURL=style.css.map */

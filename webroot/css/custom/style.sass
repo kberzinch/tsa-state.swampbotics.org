@@ -1,0 +1,34 @@
+@import "bourbon/bourbon"
+
+$organe: rgb(235, 149, 50)
+$table-border: 1px solid #D4862D
+
+.table-custom
+  thead
+    th
+      text-align: center !important
+      border-bottom: 2px solid #D4862D !important
+  tbody
+    // For background color
+    tr
+      &:nth-child(odd)
+        td, th
+          background-color: #EDA046
+      &:nth-child(even)
+        &:hover
+          td, th
+            +transition(all 0.1s ease-in-out)
+            background-color: rgba(212, 134, 45, 0.1)
+      &:last-child
+        td, th
+          border-bottom: none !important
+      // For borders and widths
+      td, th
+        border-bottom: $table-border !important
+        border-right: $table-border
+        text-align: center
+        width: 14%
+        &:last-child
+          border-right: none !important
+        &:nth-child(3)
+          width: 30%
