@@ -1,13 +1,194 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-<title>Georgia TSA State Conference VEX Tournament Scores</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Login, registration forms">
+    <meta name="author" content="Seong Lee">
+
+    <title>Tournament | Swampbotics</title>
+
+    <!-- Stylesheets -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/animation.css" rel="stylesheet">
+    <link href="css/checkbox/orange.css" rel="stylesheet">
+    <link href="css/preview.css" rel="stylesheet">
+    <link href="css/authenty.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/custom/style.css">
+
+    <!-- Font Awesome CDN -->
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,700' rel='stylesheet' type='text/css'>
+
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
 </head>
+
 <body>
-<h1>Georgia TSA State Conference VEX Tournament Scores</h1>
-<small>This is NOT official. However, assuming tournament staff keep it updated, it should be nearly accurate.<br><br>
-<table>
-<tr><td>Rank</td><td>VIN</td><td>PS</td><td>RS</td><td>Total</td></tr> <!-- This is supposed to be a header row. I tried th and it broke. I have no idea what I'm doing. -->
-{row}
-</table>
+    <nav id="navigation_menu">
+        <ul class="clearfix">
+
+        </ul>
+    </nav>
+
+    <section id="signup_wizard" class="authenty signup-wizard">
+        <div class="section-content">
+            <div class="container">
+                <img style="display: block; margin: auto;" data-animation="fadeInRight" data-animation-delay=".4s" src="https://swampbotics.com/assets/img/gator.svg" width="180">
+                <h1 class="text-center kaushan" data-animation="bounceIn" data-animation-delay="0.8s">Swampbotics Tournament App</h1>
+                <br>
+                <table class="table table-striped table-custom table-hover" data-animation="bounceInLeft" data-animation-delay=".4s">
+                    <thead>
+                        <tr>
+                            <th>RANK</th>
+                            <th>Team #</th>
+                            <th>Name</th>
+                            <th>Programming</th>
+                            <th>Robot</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>2105A</td>
+                            <td>Swampbotics</td>
+                            <td>30</td>
+                            <td>20</td>
+                            <td>50</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>2105B</td>
+                            <td>Swampbotics</td>
+                            <td>30</td>
+                            <td>20</td>
+                            <td>50</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>2105C</td>
+                            <td>Swampbotics</td>
+                            <td>30</td>
+                            <td>20</td>
+                            <td>50</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- js library -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/jquery-ui.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.icheck.min.js"></script>
+    <script src="js/waypoints.min.js"></script>
+
+    <!-- authenty js -->
+    <script src="js/authenty.js"></script>
+
+    <!-- preview scripts -->
+    <script src="js/preview/jquery.malihu.PageScroll2id.js"></script>
+    <script src="js/preview/jquery.address-1.6.min.js"></script>
+    <script src="js/preview/scrollTo.min.js"></script>
+    <script src="js/preview/init.js"></script>
+
+
+    <!-- preview scripts -->
+    <script>
+        (function($) {
+
+            // get full window size
+            $(window).on('load resize', function() {
+                var w = $(window).width();
+                var h = $(window).height();
+
+                $('section').height(h);
+            });
+
+            // scrollTo plugin
+            $('#signup_from_1').scrollTo({
+                easing: 'easeInOutQuint',
+                speed: 1500
+            });
+            $('#forgot_from_1').scrollTo({
+                easing: 'easeInOutQuint',
+                speed: 1500
+            });
+            $('#signup_from_2').scrollTo({
+                easing: 'easeInOutQuint',
+                speed: 1500
+            });
+            $('#forgot_from_2').scrollTo({
+                easing: 'easeInOutQuint',
+                speed: 1500
+            });
+            $('#forgot_from_3').scrollTo({
+                easing: 'easeInOutQuint',
+                speed: 1500
+            });
+
+
+            // set focus on input
+            var firstInput = $('section').find('input[type=text], input[type=email]').filter(':visible:first');
+
+            if (firstInput != null) {
+                firstInput.focus();
+            }
+
+            $('section').waypoint(function(direction) {
+                var target = $(this).find('input[type=text], input[type=email]').filter(':visible:first');
+                target.focus();
+            }, {
+                offset: 300
+            }).waypoint(function(direction) {
+                var target = $(this).find('input[type=text], input[type=email]').filter(':visible:first');
+                target.focus();
+            }, {
+                offset: -400
+            });
+
+
+            // animation handler
+            $('[data-animation-delay]').each(function() {
+                var animationDelay = $(this).data("animation-delay");
+                $(this).css({
+                    "-webkit-animation-delay": animationDelay,
+                    "-moz-animation-delay": animationDelay,
+                    "-o-animation-delay": animationDelay,
+                    "-ms-animation-delay": animationDelay,
+                    "animation-delay": animationDelay
+                });
+            });
+
+            $('[data-animation]').waypoint(function(direction) {
+                if (direction == "down") {
+                    $(this).addClass("animated " + $(this).data("animation"));
+                }
+            }, {
+                offset: '90%'
+            }).waypoint(function(direction) {
+                if (direction == "up") {
+                    $(this).removeClass("animated " + $(this).data("animation"));
+                }
+            }, {
+                offset: '100%'
+            });
+
+        })(jQuery);
+    </script>
 </body>
+
 </html>
