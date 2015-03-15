@@ -33,7 +33,7 @@ jQuery(function($) {
             '<td>' + data[f]['total'] + '</td>' +
             '</tr>';
 
-          $('#append').append(Html);
+          $('#append').empty().fadeOut().append(Html).fadeIn();
         });
 
       });
