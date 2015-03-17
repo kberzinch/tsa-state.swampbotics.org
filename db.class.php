@@ -102,10 +102,10 @@ final class Db
     private function handleError($action, $number = -1, $text = '')
     {
         if ($number === -1) {
-            echo $action . ' failed: (' . $this->connection->errno . ') ' . $this->connection->error. '. Please use the Back button to return to the previous page and correct your input.';
+            echo $action . ' failed: (' . $this->connection->errno . ') ' . $this->connection->error. '. Please use the Back button to return to the previous page and correct your input. If the problem persists, please contact the hostmaster.';
             exit;
         } else {
-            echo $action . ' failed: (' . $number . ') ' . $text. '. Please use the Back button to return to the previous page and correct your input.';
+            echo $action . ' failed: (' . $number . ') ' . $text. '. Please use the Back button to return to the previous page and correct your input. If the problem persists, please contact the hostmaster.';
             exit;
         }
     }

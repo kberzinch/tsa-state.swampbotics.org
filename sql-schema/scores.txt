@@ -1,0 +1,20 @@
+CREATE TABLE `scores` (
+	`vin` VARCHAR(10) NOT NULL,
+	`name` VARCHAR(100) NULL DEFAULT NULL,
+	`program_skyrise_sections` TINYINT(3) UNSIGNED NULL DEFAULT NULL,
+	`program_skyrise_cubes` TINYINT(3) UNSIGNED NULL DEFAULT NULL,
+	`program_posts_owned` TINYINT(3) UNSIGNED NULL DEFAULT NULL,
+	`program_posts_cubes` TINYINT(3) UNSIGNED NULL DEFAULT NULL,
+	`program_floor_cubes` TINYINT(3) UNSIGNED NULL DEFAULT NULL,
+	`program_score` TINYINT(3) UNSIGNED NULL DEFAULT NULL,
+	`driver_skyrise_sections` TINYINT(3) UNSIGNED NULL DEFAULT NULL,
+	`driver_skyrise_cubes` TINYINT(3) UNSIGNED NULL DEFAULT NULL,
+	`driver_posts_owned` TINYINT(3) UNSIGNED NULL DEFAULT NULL,
+	`driver_posts_cubes` TINYINT(3) UNSIGNED NULL DEFAULT NULL,
+	`driver_floor_cubes` TINYINT(3) UNSIGNED NULL DEFAULT NULL,
+	`driver_score` TINYINT(3) UNSIGNED NULL DEFAULT NULL,
+	PRIMARY KEY (`vin`),
+	UNIQUE INDEX `vin` (`vin`)
+)
+COLLATE='latin1_swedish_ci'
+ENGINE=InnoDB;

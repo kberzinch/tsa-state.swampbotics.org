@@ -5,24 +5,22 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Login, registration forms">
-    <meta name="author" content="Seong Lee">
 
-    <title>Tournament | Swampbotics</title>
+    <title>Detailed Scores | Georgia TSA State Conference</title>
+    <link rel="icon" type="image/svg+xml" href="/tsa.svg">
 
     <!-- Stylesheets -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/animation.css" rel="stylesheet">
-    <link href="css/checkbox/orange.css" rel="stylesheet">
-    <link href="css/preview.css" rel="stylesheet">
-    <link href="css/authenty.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/custom/style.css">
+    <!--<link href="css/animation.css" rel="stylesheet">-->
+    <!--<link href="css/checkbox/orange.css" rel="stylesheet">-->
+    <!--<link href="css/preview.css" rel="stylesheet">-->
+    <!--<link href="css/authenty.css" rel="stylesheet">-->
 
     <!-- Font Awesome CDN -->
-    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <!--<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">-->
 
     <!-- Google Fonts -->
-    <link href='//fonts.googleapis.com/css?family=Roboto+Slab:400,700,300' rel='stylesheet' type='text/css'>
+    <!--<link href='//fonts.googleapis.com/css?family=Roboto+Slab:400,700,300' rel='stylesheet' type='text/css'>-->
     <link href='//fonts.googleapis.com/css?family=Open+Sans:300,400,700' rel='stylesheet' type='text/css'>
 
 
@@ -31,68 +29,68 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
+    <style>
+      body {
+        font-family: 'Open Sans', serif;
+      }
+      h2 {
+        font-family: 'Open Sans', serif;
+      }
+    </style>
 </head>
 
 <body>
-    <nav id="navigation_menu">
-        <ul class="clearfix">
-
-        </ul>
-    </nav>
-
     <section id="signup_wizard" class="authenty signup-wizard">
         <div class="section-content">
             <div class="container">
-                <div class="row">
-                    <div class="col-sm-6 col-sm-offset-3">
-                        <img style="display: block; margin: auto;" data-animation="fadeInDown" data-animation-delay="0.1s" src="https://swampbotics.com/assets/img/gator.svg" width="164">
-                        <h2 class="text-center kaushan" data-animation="bounceIn" data-animation-delay="0.3s">
-                            Swampbotics
-                            <br>Tournament App
-                        </h2>
-                    </div>
-                </div>
-                <br>
                 <table class="table table-striped table-custom table-hover" data-animation="fadeInUp" data-animation-delay=".8s">
                     <thead>
                         <tr>
                             <th id="rank">RANK</th>
                             <th id="team">TEAM #</th>
                             <th id="name">NAME</th>
-                            <th id="programming">PROGRAMMING</th>
-                            <th id="robot">ROBOT</th>
-                            <th id="total">TOTAL</th>
+                            <th id="programming">PSKYSCTS</th>
+                            <th id="programming">PSKYCBS</th>
+                            <th id="programming">PPSTOWN</th>
+                            <th id="programming">PPSTCBS</th>
+                            <th id="programming">PFLRCBS</th>
+                            <th id="programming">PSCORE</th>
+                            <th id="programming">DSKYSCTS</th>
+                            <th id="programming">DSKYCBS</th>
+                            <th id="programming">DPSTOWN</th>
+                            <th id="programming">DPSTCBS</th>
+                            <th id="programming">DFLRCBS</th>
+                            <th id="programming">DSCORE</th>
+                            <th id="programming">TOTAL</th>
                         </tr>
                     </thead>
                     <tbody id="append">
-
+                        {data}
                     </tbody>
                 </table>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- js library -->
+                </div>
+                </div>
+                </section>
+    <!-- js library
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="js/custom.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/jquery-ui.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/jquery-ui.min.js"></script>-->
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.icheck.min.js"></script>
-    <script src="js/waypoints.min.js"></script>
+    <!--<script src="js/jquery.icheck.min.js"></script>
+    <script src="js/waypoints.min.js"></script>-->
 
-    <!-- authenty js -->
+    <!-- authenty js
     <script src="js/authenty.js"></script>
 
 
-    <!-- preview scripts -->
+    <!-- preview scripts
     <script src="js/preview/jquery.malihu.PageScroll2id.js"></script>
     <script src="js/preview/jquery.address-1.6.min.js"></script>
     <script src="js/preview/scrollTo.min.js"></script>
     <script src="js/preview/init.js"></script>
 
 
-    <!-- preview scripts -->
+    <!-- preview scripts
     <script>
         (function($) {
 
@@ -174,7 +172,7 @@
             });
 
         })(jQuery);
-    </script>
+    </script>-->
 </body>
 
 </html>

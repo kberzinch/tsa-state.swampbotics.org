@@ -1,0 +1,11 @@
+CREATE TABLE `settings` (
+	`setting` INT(10) NOT NULL DEFAULT '0',
+	`value` VARCHAR(50) NULL DEFAULT NULL,
+	PRIMARY KEY (`setting`)
+)
+COLLATE='latin1_swedish_ci'
+ENGINE=InnoDB;
+
+INSERT INTO `settings` (`setting`, `value`) VALUES (1, NULL);
+INSERT INTO `settings` (`setting`, `value`) VALUES (0, '32');
+INSERT INTO `settings` (`setting`, `value`) VALUES (2, 'http://challonge.com/');
