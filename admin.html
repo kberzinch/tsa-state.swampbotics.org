@@ -5,23 +5,23 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Login, registration forms">
-    <meta name="author" content="Seong Lee">
 
-    <title>Tournament | Swampbotics</title>
+    <title>Tournament Admin Panel | Georgia TSA State Conference</title>
+    <link rel="icon" type="image/svg+xml" href="/tsa.svg">
+{alert}
 
     <!-- Stylesheets -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/animation.css" rel="stylesheet">
-    <link href="css/checkbox/orange.css" rel="stylesheet">
-    <link href="css/preview.css" rel="stylesheet">
-    <link href="css/authenty.css" rel="stylesheet">
+    <!--<link href="css/animation.css" rel="stylesheet">-->
+    <!--<link href="css/checkbox/orange.css" rel="stylesheet">-->
+    <!--<link href="css/preview.css" rel="stylesheet">-->
+    <!--<link href="css/authenty.css" rel="stylesheet">-->
 
     <!-- Font Awesome CDN -->
-    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <!--<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">-->
 
     <!-- Google Fonts -->
-    <link href='//fonts.googleapis.com/css?family=Roboto+Slab:400,700,300' rel='stylesheet' type='text/css'>
+    <!--<link href='//fonts.googleapis.com/css?family=Roboto+Slab:400,700,300' rel='stylesheet' type='text/css'>-->
     <link href='//fonts.googleapis.com/css?family=Open+Sans:300,400,700' rel='stylesheet' type='text/css'>
 
 
@@ -30,179 +30,130 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
+    <style>
+      body {
+        font-family: 'Open Sans', serif;
+      }
+      h2 {
+        font-family: 'Open Sans', serif;
+      }
+    </style>
 </head>
 
 <body>
-    <nav id="navigation_menu">
-        <ul class="clearfix">
-
-        </ul>
-    </nav>
-
     <section id="signup_wizard" class="authenty signup-wizard">
         <div class="section-content">
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-6 col-sm-offset-3">
-                        <img style="display: block; margin: auto;" data-animation="fadeInDown" data-animation-delay="0.1s" src="https://swampbotics.com/assets/img/gator.svg" width="164">
-                        <h2 class="text-center kaushan" data-animation="bounceIn" data-animation-delay="0.3s">
-                          Swampbotics<br>Tournament App
-                        </h2>
-                    </div>
+                    <h2 class="text-center">
+                      Georgia TSA State Conference<br>Tournament Admin Panel
+                    </h2>
                 </div>
             </div>
+            <br>
+            <div align="center"><label>HOSTMASTER CONTACT:</label> KRISTAPS BERZINCH (1-844-249-4182)</div>
+            <br>
             <div class="wrap">
                 <div class="container">
                     <div class="row">
-
-                        <div class="col-sm-6">
+                        <div class="col-md-6">
                             <div class="form-wrap">
-                                <div data-animation="fadeInUp" data-animation-delay="1s">
-                                    <div class="row nav-step">
-                                        <div class="col-xs-12 active">
-                                            <span></span>
-                                        </div>
-                                    </div>
-                                    <div class="row nav-step-label">
-                                        <div class="col-xs-12">Others</div>
-                                    </div>
-                                </div>
-                                <form>
-                                    <div data-animation="bounceInLeft" data-animation-delay=".6s">
-                                        <div class="row">
-                                            <ul class="page-container">
-                                                <li class="current" style="display: block !important">
-                                                    <div class="form-group">
-                                                        <input type="text" class="form-control" placeholder="Number Qualifying" value="{teams}">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <input type="checkbox"> Checkbox
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <input type="text" class="form-control" placeholder="Another field?">
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="page-footer">
-                                            <div class="row btn-wrap">
-                                                <div class="col-xs-6 col-xs-offset-6">
-                                                    <button class="btn btn-block nav-step-btn" type="submit">Submit</button>
+                                <div class="row">
+                                    <ul class="page-container">
+                                        <li class="current" style="display: block !important">
+                                            <form class="form-inline" action="admin.php" method=POST>
+                                                <input type="hidden" name="action" value="update-numqualifying">
+                                                <label>Number of qualifying teams</label>
+                                                <input type="text" class="form-control" placeholder="example: 32" value="{teams}" name="number" style="width: 85%">
+                                                <button type="submit" class="btn" style="width: 14%">Update</button>
+                                            </form>
+                                            <br>
+                                            <form action="admin.php" method=POST>
+                                                <input type="hidden" name="action" value="update-banner">
+                                                <label style="margin-bottom: -20px">Bracket banner</label>
+                                                <div class="checkbox">
+                                                    <label>
+                                                      <input type="checkbox" name="banner-on" value="1" {banner-checked}>Display the banner
+                                                    </label>
+                                                  </div>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" name="banner-url" placeholder="https://challonge.com/ABCDEF" value="{banner-url}">
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
+                                                <button class="btn btn-block nav-step-btn" type="submit">Update Banner</button>
+                                            </form>
+                                            <br>
+                                            <div align="center"><label>Administrative Tools</label></div>
+                                            <a href="/"target="_blank"><button class="btn btn-block nav-step-btn" style="display: inline-block; width: 49.5%">View public rankings</button></a>
+                                            <a href="/scores.php"target="_blank"><button class="btn btn-block nav-step-btn" style="display: inline-block; width: 49.5%">View detailed scores</button></a><br><br>
+                                            <a href="/list.php"target="_blank"><button class="btn btn-block nav-step-btn" style="display: inline-block; width: 49.5%">Copyable list for bracket</button></a>
+                                            <a href="{banner-url}"target="_blank"><button class="btn btn-block nav-step-btn" style="display: inline-block; width: 49.5%">Go to bracket</button></a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-
-                        <div class="col-sm-6">
+                        <div class="col-md-6">
                             <div class="form-wrap">
-                                <div data-animation="fadeInUp" data-animation-delay="1s">
-                                    <div class="row nav-step">
-                                        <div class="col-xs-6 active">
-                                            <span></span>
-                                        </div>
-                                        <div class="col-xs-6">
-                                            <span></span>
-                                        </div>
-                                    </div>
-                                    <div class="row nav-step-label">
-                                        <div class="col-xs-6">Score</div>
-                                        <div class="col-xs-6">Confirm</div>
-                                    </div>
-                                </div>
-
-                                <div data-animation="bounceInRight" data-animation-delay=".6s">
-                                    <div class="row">
-                                        <ul class="page-container">
-                                            <li class="current">
-                                                <form>
-                                                    <div class="form-group">
-                                                        <input type="text" class="form-control" placeholder="Team Number">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <div class="col-md-6" style="padding-left: 0px; height: 34px">
-                                                            <input type="radio" name="type"> Programming
-                                                        </div>
-                                                        <div class="col-md-6" style="padding-right: 0px;">
-                                                            <input type="radio" name="type"> Driving
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <input type="text" class="form-control" placeholder="Score">
-                                                    </div>
-                                                </form>
-                                            </li>
-                                            <li>
-                                                <span>Confirm details before you submit.</span>
-                                                <div class="step-confirm">
-                                                    <div class="row">
-                                                        <div class="col-xs-5">Team #:</div>
-                                                        <div class="col-xs-5"></div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-xs-5">Type:</div>
-                                                        <div class="col-xs-5"></div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-xs-5">Score:</div>
-                                                        <div class="col-xs-5"></div>
-                                                    </div>
+                                <div class="row">
+                                    <ul class="page-container">
+                                        <li class="current" style="display: block !important">
+                                            <form action="admin.php" method=POST>
+                                                <input type="hidden" name="action" value="report-score">
+                                                <label>Report a score</label>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" name="team" placeholder="Team #">
                                                 </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-
-                                    <div class="page-footer">
-                                        <div class="row step-wrap">
-                                            <div class="col-xs-12">
-                                                <span>
-                                                    <span id="stepNo"></span> of 2</span>
-                                            </div>
-                                        </div>
-                                        <div class="row btn-wrap">
-                                            <div class="col-xs-6" id="prev">
-                                                <button class="btn btn-block nav-step-btn">Previous</button>
-                                            </div>
-                                            <div class="col-xs-6" id="next">
-                                                <button class="btn btn-block nav-step-btn">Next</button>
-                                            </div>
-                                            <div class="col-xs-6" id="submit">
+                                                <div class="form-group">
+                                                    <input type="radio" name="type" value="program" checked>Programming Skills<br>
+                                                    <input type="radio" name="type" value="driver">Driver Skills
+                                                </div>
+                                                <div class="col-xs-6">
+                                                    <label>Skyrise</label>
+                                                    <input type="text" class="form-control" name="skyrise-sections" placeholder="Skyrise sections"><br>
+                                                    <input type="text" class="form-control" name="skyrise-cubes" placeholder="Cubes on Skyrise">
+                                                </div>
+                                                <div class="col-xs-6">
+                                                    <label>Posts</label>
+                                                    <input type="text" class="form-control" name="posts-owned" placeholder="Posts owned"><br>
+                                                    <input type="text" class="form-control" name="posts-cubes" placeholder="Cubes on posts"><br>
+                                                </div>
+                                                <div align="center">
+                                                    <label style="display: inline-block;">Floor goals &nbsp</label><input type="text" class="form-control" name="floor-cubes" placeholder="Cubes in floor goals" style="display: inline-block; width: 30%">
+                                                </div><br>
                                                 <button class="btn btn-block nav-step-btn" type="submit">Submit</button>
-                                            </div>
-                                        </div>
-                                    </div>
+                                            </form>
+                                        </li>
+                                    </ul>
                                 </div>
-
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
+        <br>
+        <div align=center><small>Designed, developed, and hosted by the <a href="https://swampbotics.com" target="_blank">Swampbotics</a> software team: <a href="https://twitter.com/kberzinch" target="_blank">@kberzinch</a> and <a href="https://mureedsultan.com" target="_blank">Mureed Sultan</a>.<br>Official scores are kept on paper and may be verified at any time.</small><br><br><a href="https://www.digitalocean.com/?refcode=faba186146cd" target="_blank"><img src="/digitalocean.png" width=100></div>
     </section>
 
 
     <!-- js library -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/jquery-ui.min.js"></script>
+    <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>-->
+    <!--<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/jquery-ui.min.js"></script>-->
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.icheck.min.js"></script>
-    <script src="js/waypoints.min.js"></script>
+    <!--<script src="js/jquery.icheck.min.js"></script>-->
+    <!--<script src="js/waypoints.min.js"></script>-->
 
     <!-- authenty js -->
-    <script src="js/authenty.js"></script>
+    <!--<script src="js/authenty.js"></script>-->
 
     <!-- preview scripts -->
-    <script src="js/preview/jquery.malihu.PageScroll2id.js"></script>
+    <!--<script src="js/preview/jquery.malihu.PageScroll2id.js"></script>
     <script src="js/preview/jquery.address-1.6.min.js"></script>
     <script src="js/preview/scrollTo.min.js"></script>
-    <script src="js/preview/init.js"></script>
+    <script src="js/preview/init.js"></script>-->
 
 
-    <!-- preview scripts -->
+    <!-- preview scripts
     <script>
         (function($) {
 
@@ -284,7 +235,7 @@
             });
 
         })(jQuery);
-    </script>
+    </script> -->
 </body>
 
 </html>

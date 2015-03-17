@@ -6,7 +6,7 @@ require "../db.class.php";
 header('Content-Type: application/json');
 
 $db = new Db();
-$numqualifying = $db->query('SELECT value FROM settings');
+$numqualifying = $db->query('SELECT value FROM settings WHERE setting=0');
 $teams = $db->query('SELECT * FROM scores ORDER BY (program_score+driver_score), program_score DESC LIMIT ?', 'i', $numqualifying[0]['value']);
 for ($i = 0; $i < count($teams); $i++) {
     if ($teams[$i]['program_score'] === null) {
