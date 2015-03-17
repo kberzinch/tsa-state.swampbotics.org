@@ -8,10 +8,10 @@
   border-bottom: none !important; }
 .table-custom tbody tr td, .table-custom tbody tr th {
   text-align: center;
-  width: 14%; }
+  }
   .table-custom tbody tr td:last-child, .table-custom tbody tr th:last-child {
     border-right: none !important; }
   .table-custom tbody tr td:nth-child(3), .table-custom tbody tr th:nth-child(3) {
-    width: 30%; }
+    }
 
 /*# sourceMappingURL=style.css.map */
