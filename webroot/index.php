@@ -5,6 +5,8 @@ require "../db.class.php";
 
 $output = file_get_contents("../index.html");
 $db = new Db();
+$result = $db->query('SELECT value FROM settings WHERE setting=0');
+$output = str_replace("{numqualifying}", $result[0]["value"], $output);
 $result = $db->query('SELECT value FROM settings WHERE setting=1');
 if ($result[0]["value"] == 1) {
     $output = str_replace("{banner}", file_get_contents("../banner.html"), $output);
