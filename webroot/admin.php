@@ -16,6 +16,8 @@ floor-cubes (1x)
  */
 $db = new Db();
 $message = '';
+$prefill_team = '';
+$prefill_robotchecked = false;
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     switch($_POST['action']) {
         case 'report-score':
@@ -66,6 +68,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                         $_POST['floor-cubes'],
                         $score
                     );
+					$prefill_team = $number;
+					$prefill_robotchecked = true;
                     break;
                 case 'driver':
                     $friendly = "Robot Skills";
@@ -139,5 +143,12 @@ if ($result[0]["value"] == 1) {
 
 $result = $db->query('SELECT value FROM settings WHERE setting=2');
 $output = str_replace("{banner-url}", $result[0]["value"], $output);
+
+$output = str_replace("{team-number}", $prefill_team, $output);
+if ($prefill_robotchecked) {
+    $output = str_replace("{robot-checked}", 'checked', $output);
+} else {
+    $output = str_replace("{program-checked}", 'checked', $output);
+}
 
 echo $output;
