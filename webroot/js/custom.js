@@ -28,7 +28,7 @@ jQuery(function($) {
             '<tr>' +
             '<th scope="row">' + parseFloat(f + 1) + '</th>' +
             '<td>' + data[f]['vin'] + '</td>' +
-            '<td>' + data[f]['name'] + '</td>' +
+            //'<td>' + data[f]['name'] + '</td>' +
             '<td>' + data[f]['program_score'] + '</td>' +
             '<td>' + data[f]['driver_score'] + '</td>' +
             '<td>' + data[f]['total'] + '</td>' +
