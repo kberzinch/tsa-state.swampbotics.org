@@ -24,7 +24,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 $message = 'Please enter a team number.';
                 break;
             }
-            $name = getTeamName($number);
             $score=($_POST['skyrise-sections'] * 4) + ($_POST['skyrise-cubes'] * 4) +
                 ($_POST['posts-cubes'] * 2) + $_POST['posts-owned'] + $_POST['floor-cubes'];
             if ($_POST['skyrise-sections'] > 7) {
@@ -47,14 +46,13 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 case 'program':
                     $friendly = "Programming Skills";
                     $db->query(
-                        'INSERT INTO scores SET vin=?, name=?, program_skyrise_sections=?,
+                        'INSERT INTO scores SET vin=?, program_skyrise_sections=?,
                         program_skyrise_cubes=?, program_posts_owned=?, program_posts_cubes=?,
                         program_floor_cubes=?, program_score=? ON DUPLICATE KEY UPDATE program_skyrise_sections=?,
                         program_skyrise_cubes=?, program_posts_owned=?, program_posts_cubes=?,
                         program_floor_cubes=?, program_score=?',
-                        'ssiiiiiiiiiiii',
+                        'siiiiiiiiiiii',
                         $number,
-                        $name,
                         $_POST['skyrise-sections'],
                         $_POST['skyrise-cubes'],
                         $_POST['posts-owned'],
@@ -72,14 +70,13 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 case 'driver':
                     $friendly = "Robot Skills";
                     $db->query(
-                        'INSERT INTO scores SET vin=?, name=?, driver_skyrise_sections=?,
+                        'INSERT INTO scores SET vin=?, driver_skyrise_sections=?,
                         driver_skyrise_cubes=?, driver_posts_owned=?, driver_posts_cubes=?,
                         driver_floor_cubes=?, driver_score=? ON DUPLICATE KEY UPDATE driver_skyrise_sections=?,
                         driver_skyrise_cubes=?, driver_posts_owned=?, driver_posts_cubes=?,
                         driver_floor_cubes=?, driver_score=?',
-                        'ssiiiiiiiiiiii',
+                        'siiiiiiiiiiii',
                         $number,
-                        $name,
                         $_POST['skyrise-sections'],
                         $_POST['skyrise-cubes'],
                         $_POST['posts-owned'],
@@ -98,7 +95,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                     $friendly = "unknown";
                     break;
             }
-            $message = 'Your '.$friendly.' score of '.$score.' for team '.$number.' ('.$name.') was successfully submitted.';
+            $message = 'Your '.$friendly.' score of '.$score.' for team '.$number.' was successfully submitted.';
             break;
         case 'update-numqualifying':
             $db->query('UPDATE settings SET value=(?) WHERE setting=0', 'i', $_POST['number']);
