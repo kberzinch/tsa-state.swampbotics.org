@@ -61,16 +61,18 @@
                                 <div class="row">
                                     <ul class="page-container">
                                         <li class="current" style="display: block !important">
-                                            <form class="form-inline" action="admin.php" method=POST>
+                                            <form class="form-inline" action="admin" method=POST>
                                                 <input type="hidden" name="action" value="update-numqualifying">
-                                                <label>Number of qualifying teams</label>
+                                                <label>Number of qualifying teams</label><br>
+                                                This is the number of teams that will proceed to the elimination bracket.<br><br>
                                                 <input type="text" class="form-control" placeholder="example: 32" value="{teams}" name="number" style="width: 85%">
                                                 <button type="submit" class="btn" style="width: 14%">Update</button>
                                             </form>
                                             <br>
-                                            <form action="admin.php" method=POST>
+                                            <form action="admin" method=POST>
                                                 <input type="hidden" name="action" value="update-banner">
-                                                <label style="margin-bottom: -20px">Bracket banner</label>
+                                                <label>Bracket banner</label><br>
+                                                You can display a banner at the top of the rankings with a link to the bracket.<br>
                                                 <div class="checkbox">
                                                     <label>
                                                       <input type="checkbox" name="banner-on" value="1" {banner-checked}>Display the banner
@@ -84,8 +86,8 @@
                                             <br>
                                             <div align="center"><label>Administrative Tools</label></div>
                                             <a href="/"target="_blank"><button class="btn btn-block nav-step-btn" style="display: inline-block; width: 49.5%">View public rankings</button></a>
-                                            <a href="/scores.php"target="_blank"><button class="btn btn-block nav-step-btn" style="display: inline-block; width: 49.5%">View detailed scores</button></a><br><br>
-                                            <a href="/list.php"target="_blank"><button class="btn btn-block nav-step-btn" style="display: inline-block; width: 49.5%">Copyable list for bracket</button></a>
+                                            <a href="/scores"target="_blank"><button class="btn btn-block nav-step-btn" style="display: inline-block; width: 49.5%">View detailed scores</button></a><br><br>
+                                            <a href="/list"target="_blank"><button class="btn btn-block nav-step-btn" style="display: inline-block; width: 49.5%">Copyable list for bracket</button></a>
                                             <a href="{banner-url}"target="_blank"><button class="btn btn-block nav-step-btn" style="display: inline-block; width: 49.5%">Go to bracket</button></a>
                                         </li>
                                     </ul>
@@ -97,15 +99,16 @@
                                 <div class="row">
                                     <ul class="page-container">
                                         <li class="current" style="display: block !important">
-                                            <form action="admin.php" method=POST>
+                                            <form action="admin" method=POST>
                                                 <input type="hidden" name="action" value="report-score">
-                                                <label>Report a score</label>
+                                                <label>Report a score</label><br>
+                                                Any existing score will be overwritten. The hostmaster can delete scores as needed.<br><br>
                                                 <div class="form-group">
                                                     <input type="text" class="form-control" name="team" placeholder="Team #">
                                                 </div>
                                                 <div class="form-group">
                                                     <input type="radio" name="type" value="program" checked>Programming Skills<br>
-                                                    <input type="radio" name="type" value="driver">Driver Skills
+                                                    <input type="radio" name="type" value="driver">Robot Skills
                                                 </div>
                                                 <div class="col-xs-6">
                                                     <label>Skyrise</label>

@@ -109,7 +109,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $db->query('UPDATE settings SET value=(?) WHERE setting=1', 'i', $_POST['banner-on']);
             $message = 'Banner URL successfully set to '.$_POST['banner-url'].'.';
             if ($_POST['banner-on'] == 1) {
-                $message .= ' Banner is now displayed.';
+                $message .= ' Banner is now displayed. Refresh your displays!';
             } else {
                 $message .= ' Banner is now hidden.';
             }
