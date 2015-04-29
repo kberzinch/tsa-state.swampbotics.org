@@ -2,7 +2,7 @@
 namespace TSAState;
 
 $username = 'admin';
-$password = 'fGQmL'; // obviously this will be changed to something more secure.
+$password = 'vQRpQ'; // obviously this will be changed to something more secure.
 $fail = 'You are not authorized to access this page. <a href="?retry">Retry login</a>';
 
 if (!isset($_SERVER['PHP_AUTH_USER']) or // user has not logged in
