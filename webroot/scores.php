@@ -1,8 +1,8 @@
 <?php
 namespace TSAState;
 
-require "../authenticate.php";
-require "../db.class.php";
+require "../php/authenticate.php";
+require "../php/db.class.php";
 
 $db = new Db();
 $teams = $db->query('SELECT *, (program_score+driver_score) FROM scores ORDER BY (program_score+driver_score) DESC, program_score DESC');
@@ -12,6 +12,6 @@ for ($i = 0; $i < count($teams); $i++) {
 }
 
 $data = str_replace('{data}', '', $data);
-$output = file_get_contents("../scores.html");
+$output = file_get_contents("../html/scores.html");
 $output = str_replace('{data}', $data, $output);
 echo $output;

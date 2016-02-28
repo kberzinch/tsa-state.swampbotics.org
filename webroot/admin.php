@@ -1,9 +1,8 @@
 <?php
 namespace TSAState;
 
-require "../authenticate.php";
-require "../db.class.php";
-require "../teamname.php";
+require "../php/authenticate.php";
+require "../php/db.class.php";
 
 // HANDLING FORMS
 /*
@@ -19,7 +18,7 @@ $message = '';
 $prefill_team = '';
 $prefill_robotchecked = false;
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
-    switch($_POST['action']) {
+    switch ($_POST['action']) {
         case 'report-score':
             $number = strtoupper($_POST['team']);
             if ($number === '') {
@@ -44,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 $message = 'Your score was not submitted because you reported '.($_POST['posts-cubes'] + $_POST['floor-cubes'] + $_POST['skyrise-cubes']).' total cubes scored. Max expected was 44.';
                 break;
             }
-            switch($_POST['type']) {
+            switch ($_POST['type']) {
                 case 'program':
                     $friendly = "Programming Skills";
                     $db->query(
@@ -68,8 +67,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                         $_POST['floor-cubes'],
                         $score
                     );
-					$prefill_team = $number;
-					$prefill_robotchecked = true;
+                    $prefill_team = $number;
+                    $prefill_robotchecked = true;
                     break;
                 case 'driver':
                     $friendly = "Robot Skills";
@@ -123,9 +122,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 }
 
 // OUTPUT PAGE
-$output = file_get_contents("../admin.html");
+$output = file_get_contents("../html/admin.html");
 if ($message !== "") {
-    $output = str_replace("{alert}", file_get_contents("../alert.html"), $output);
+    $output = str_replace("{alert}", file_get_contents("../html/alert.html"), $output);
 } else {
     $output = str_replace("{alert}", '', $output);
 }
