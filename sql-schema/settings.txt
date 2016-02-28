@@ -10,3 +10,5 @@ INSERT INTO `settings` (`setting`, `value`) VALUES (0, '32');
 INSERT INTO `settings` (`setting`, `value`) VALUES (1, NULL);
 INSERT INTO `settings` (`setting`, `value`) VALUES (2, 'http://challonge.com/');
 INSERT INTO `settings` (`setting`, `value`) VALUES (3, 'Georgia');
+INSERT INTO `settings` (`setting`, `value`) VALUES (4, 'USERNAME');
+INSERT INTO `settings` (`setting`, `value`) VALUES (5, 'PASSWORD');
