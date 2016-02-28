@@ -43,20 +43,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 }
                 break;
             }
-            /*
-                `vin` VARCHAR(10) NOT NULL,
-                `name` VARCHAR(100) NULL DEFAULT NULL,
-                `program_balls_low` TINYINT(3) UNSIGNED NULL DEFAULT NULL,
-                `program_balls_high` TINYINT(3) UNSIGNED NULL DEFAULT NULL,
-                `program_bonus_low` TINYINT(3) UNSIGNED NULL DEFAULT NULL,
-                `program_bonus_high` TINYINT(3) UNSIGNED NULL DEFAULT NULL,
-                `program_score` TINYINT(3) UNSIGNED NULL DEFAULT NULL,
-                `driver_balls_low` TINYINT(3) UNSIGNED NULL DEFAULT NULL,
-                `driver_balls_high` TINYINT(3) UNSIGNED NULL DEFAULT NULL,
-                `driver_bonus_low` TINYINT(3) UNSIGNED NULL DEFAULT NULL,
-                `driver_bonus_high` TINYINT(3) UNSIGNED NULL DEFAULT NULL,
-                `driver_score` TINYINT(3) UNSIGNED NULL DEFAULT NULL,
-             */
             switch ($_POST['type']) {
                 case 'program':
                     $friendly = "Programming Skills";
