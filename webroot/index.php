@@ -16,4 +16,5 @@ if ($result[0]["value"] == 1) {
     $output = str_replace("{banner}", '', $output);
 }
 $output = str_replace("{state}", $db->query("SELECT value FROM settings WHERE setting=3")[0]['value'], $output);
+$output = str_replace("{footer}", file_get_contents("../html/footer.html"), $output);
 echo $output;

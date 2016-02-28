@@ -7,11 +7,12 @@ require "../php/db.class.php";
 // HANDLING FORMS
 /*
 FORM REFERENCE:
-skyrise-sections (4x)
-skyrise-cubes (4x)
-posts-owned (1x)
-posts-cubes (2x)
-floor-cubes (1x)
+balls-low (1x)
+balls-high (5x)
+bonus-low (2x)
+bonus-high (10x)
+94 balls total
+10 bonus balls total
  */
 $db = new Db();
 $message = '';
@@ -25,46 +26,57 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 $message = 'Please enter a team number.';
                 break;
             }
-            $score=($_POST['skyrise-sections'] * 4) + ($_POST['skyrise-cubes'] * 4) +
-                ($_POST['posts-cubes'] * 2) + $_POST['posts-owned'] + $_POST['floor-cubes'];
-            if ($_POST['skyrise-sections'] > 7) {
-                $message = 'Your score was not submitted because you reported '.$_POST['skyrise-sections'].' skyrise sections scored. Max expected was 7.';
+            $score = $_POST['balls-low'] + 5 * $_POST['balls-high'] + 2 * $_POST['bonus-low'] + 10 * $_POST['bonus-high'];
+            if ($_POST['balls-low'] + $_POST['balls-high'] > 94) {
+                $message = 'Your score was not submitted because you reported a total of '.($_POST['balls-low'] + $_POST['balls-high']).' balls scored, but there\'s only 94 total.';
+                $prefill_team = $number;
+                if ($_POST['type'] === 'driver') {
+                    $prefill_robotchecked = true;
+                }
                 break;
             }
-            if ($_POST['skyrise-cubes'] > 8) {
-                $message = 'Your score was not submitted because you reported '.$_POST['skyrise-cubes'].' cubes scored on skyrise. Max expected was 8.';
+            if ($_POST['bonus-low'] + $_POST['bonus-high'] > 10) {
+                $message = 'Your score was not submitted because you reported a total of '.($_POST['bonus-low'] + $_POST['bonus-high']).' bonus balls scored, but there\'s only 10 total.';
+                $prefill_team = $number;
+                if ($_POST['type'] === 'driver') {
+                    $prefill_robotchecked = true;
+                }
                 break;
             }
-            if ($_POST['posts-owned'] > 10) {
-                $message = 'Your score was not submitted because you reported '.$_POST['posts-owned'].' posts owned. Max expected was 10.';
-                break;
-            }
-            if (($_POST['posts-cubes'] + $_POST['floor-cubes'] + $_POST['skyrise-cubes']) > 44) {
-                $message = 'Your score was not submitted because you reported '.($_POST['posts-cubes'] + $_POST['floor-cubes'] + $_POST['skyrise-cubes']).' total cubes scored. Max expected was 44.';
-                break;
-            }
+            /*
+                `vin` VARCHAR(10) NOT NULL,
+                `name` VARCHAR(100) NULL DEFAULT NULL,
+                `program_balls_low` TINYINT(3) UNSIGNED NULL DEFAULT NULL,
+                `program_balls_high` TINYINT(3) UNSIGNED NULL DEFAULT NULL,
+                `program_bonus_low` TINYINT(3) UNSIGNED NULL DEFAULT NULL,
+                `program_bonus_high` TINYINT(3) UNSIGNED NULL DEFAULT NULL,
+                `program_score` TINYINT(3) UNSIGNED NULL DEFAULT NULL,
+                `driver_balls_low` TINYINT(3) UNSIGNED NULL DEFAULT NULL,
+                `driver_balls_high` TINYINT(3) UNSIGNED NULL DEFAULT NULL,
+                `driver_bonus_low` TINYINT(3) UNSIGNED NULL DEFAULT NULL,
+                `driver_bonus_high` TINYINT(3) UNSIGNED NULL DEFAULT NULL,
+                `driver_score` TINYINT(3) UNSIGNED NULL DEFAULT NULL,
+             */
             switch ($_POST['type']) {
                 case 'program':
                     $friendly = "Programming Skills";
                     $db->query(
-                        'INSERT INTO scores SET vin=?, program_skyrise_sections=?,
-                        program_skyrise_cubes=?, program_posts_owned=?, program_posts_cubes=?,
-                        program_floor_cubes=?, program_score=? ON DUPLICATE KEY UPDATE program_skyrise_sections=?,
-                        program_skyrise_cubes=?, program_posts_owned=?, program_posts_cubes=?,
-                        program_floor_cubes=?, program_score=?',
-                        'siiiiiiiiiiii',
+                        'INSERT INTO scores SET vin=?, program_balls_low=?,
+                        program_balls_high=?, program_bonus_low=?, program_bonus_high=?,
+                        program_score=? ON DUPLICATE KEY UPDATE program_balls_low=?,
+                        program_balls_high=?, program_bonus_low=?, program_bonus_high=?,
+                        program_score=?',
+                        'siiiiiiiiii',
                         $number,
-                        $_POST['skyrise-sections'],
-                        $_POST['skyrise-cubes'],
-                        $_POST['posts-owned'],
-                        $_POST['posts-cubes'],
-                        $_POST['floor-cubes'],
+                        $_POST['balls-low'],
+                        $_POST['balls-high'],
+                        $_POST['bonus-low'],
+                        $_POST['bonus-high'],
                         $score,
-                        $_POST['skyrise-sections'],
-                        $_POST['skyrise-cubes'],
-                        $_POST['posts-owned'],
-                        $_POST['posts-cubes'],
-                        $_POST['floor-cubes'],
+                        $_POST['balls-low'],
+                        $_POST['balls-high'],
+                        $_POST['bonus-low'],
+                        $_POST['bonus-high'],
                         $score
                     );
                     $prefill_team = $number;
@@ -73,24 +85,22 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 case 'driver':
                     $friendly = "Robot Skills";
                     $db->query(
-                        'INSERT INTO scores SET vin=?, driver_skyrise_sections=?,
-                        driver_skyrise_cubes=?, driver_posts_owned=?, driver_posts_cubes=?,
-                        driver_floor_cubes=?, driver_score=? ON DUPLICATE KEY UPDATE driver_skyrise_sections=?,
-                        driver_skyrise_cubes=?, driver_posts_owned=?, driver_posts_cubes=?,
-                        driver_floor_cubes=?, driver_score=?',
-                        'siiiiiiiiiiii',
+                        'INSERT INTO scores SET vin=?, driver_balls_low=?,
+                        driver_balls_high=?, driver_bonus_low=?, driver_bonus_high=?,
+                        driver_score=? ON DUPLICATE KEY UPDATE driver_balls_low=?,
+                        driver_balls_high=?, driver_bonus_low=?, driver_bonus_high=?,
+                        driver_score=?',
+                        'siiiiiiiiii',
                         $number,
-                        $_POST['skyrise-sections'],
-                        $_POST['skyrise-cubes'],
-                        $_POST['posts-owned'],
-                        $_POST['posts-cubes'],
-                        $_POST['floor-cubes'],
+                        $_POST['balls-low'],
+                        $_POST['balls-high'],
+                        $_POST['bonus-low'],
+                        $_POST['bonus-high'],
                         $score,
-                        $_POST['skyrise-sections'],
-                        $_POST['skyrise-cubes'],
-                        $_POST['posts-owned'],
-                        $_POST['posts-cubes'],
-                        $_POST['floor-cubes'],
+                        $_POST['balls-low'],
+                        $_POST['balls-high'],
+                        $_POST['bonus-low'],
+                        $_POST['bonus-high'],
                         $score
                     );
                     break;
@@ -149,6 +159,8 @@ if ($prefill_robotchecked) {
 } else {
     $output = str_replace("{program-checked}", 'checked', $output);
 }
+
+$output = str_replace("{footer}", file_get_contents("../html/footer.html"), $output);
 
 $output = str_replace("{state}", $db->query("SELECT value FROM settings WHERE setting=3")[0]['value'], $output);
 

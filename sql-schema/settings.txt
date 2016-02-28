@@ -6,6 +6,7 @@ CREATE TABLE `settings` (
 COLLATE='latin1_swedish_ci'
 ENGINE=InnoDB;
 
-INSERT INTO `settings` (`setting`, `value`) VALUES (1, NULL);
 INSERT INTO `settings` (`setting`, `value`) VALUES (0, '32');
+INSERT INTO `settings` (`setting`, `value`) VALUES (1, NULL);
 INSERT INTO `settings` (`setting`, `value`) VALUES (2, 'http://challonge.com/');
+INSERT INTO `settings` (`setting`, `value`) VALUES (3, 'Georgia');
