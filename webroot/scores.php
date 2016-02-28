@@ -14,4 +14,5 @@ for ($i = 0; $i < count($teams); $i++) {
 $data = str_replace('{data}', '', $data);
 $output = file_get_contents("../html/scores.html");
 $output = str_replace('{data}', $data, $output);
+$output = str_replace("{state}", $db->query("SELECT value FROM settings WHERE setting=3")[0]['value'], $output);
 echo $output;
