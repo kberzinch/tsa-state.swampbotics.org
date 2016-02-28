@@ -1,7 +1,7 @@
 <?php
 namespace TSAState;
 
-require "../php/db.class.php";
+require_once "../php/db.class.php";
 
 header('Content-Type: application/json');
 

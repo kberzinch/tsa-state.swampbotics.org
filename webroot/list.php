@@ -1,8 +1,8 @@
 <?php
 namespace TSAState;
 
-require "../php/authenticate.php";
-require "../php/db.class.php";
+require_once "../php/authenticate.php";
+require_once "../php/db.class.php";
 
 header('Content-Type: text/plain');
 

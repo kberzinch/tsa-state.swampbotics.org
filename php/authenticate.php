@@ -2,6 +2,10 @@
 namespace TSAState;
 
 require_once "db.class.php";
+
+$db = new Db();
+$username = $db->query("SELECT value FROM settings WHERE setting=4")[0]['value'];
+$password = $db->query("SELECT value FROM settings WHERE setting=5")[0]['value'];
 $fail = 'You are not authorized to access this page. <a href="?retry">Retry login</a>';
 
 if (!isset($_SERVER['PHP_AUTH_USER']) or // user has not logged in
@@ -12,12 +16,6 @@ if (!isset($_SERVER['PHP_AUTH_USER']) or // user has not logged in
     echo $fail;
     exit;
 }
-
-$db = new Db();
-
-$username = $db->query("SELECT value FROM settings WHERE setting=4")[0]['value'];
-$password = $db->query("SELECT value FROM settings WHERE setting=5")[0]['value'];
-
 if ($_SERVER['PHP_AUTH_USER'] !== $username) {
     echo $fail;
     exit;

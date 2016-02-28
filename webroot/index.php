@@ -1,7 +1,7 @@
 <?php
 namespace TSAState;
 
-require "../php/db.class.php";
+require_once "../php/db.class.php";
 
 $output = file_get_contents("../html/index.html");
 $db = new Db();

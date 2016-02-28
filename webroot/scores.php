@@ -1,8 +1,8 @@
 <?php
 namespace TSAState;
 
-require "../php/authenticate.php";
-require "../php/db.class.php";
+require_once "../php/authenticate.php";
+require_once "../php/db.class.php";
 
 $db = new Db();
 $teams = $db->query('SELECT *, (program_score+driver_score) FROM scores ORDER BY (program_score+driver_score) DESC, program_score DESC');
