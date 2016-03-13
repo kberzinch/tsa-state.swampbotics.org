@@ -18,6 +18,7 @@ $db = new Db();
 $message = '';
 $prefill_team = '';
 $prefill_robotchecked = false;
+$teams = $db->query('SELECT program_score, driver_score FROM scores WHERE vin=(?) ORDER BY (program_score+driver_score) DESC, program_score DESC LIMIT 1', 'i', $_POST['team']);
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     switch ($_POST['action']) {
         case 'report-score':
@@ -46,6 +47,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             switch ($_POST['type']) {
                 case 'program':
                     $friendly = "Programming Skills";
+                    if ($teams[0]['program_score'] > $score) {
+                        $message = 'Your score was not submitted because the current highest '.$friendly.' score ('.$teams[0]['program_score'].') in the database for that team ('.$number.'). was less than your total ('.$score.'.) If you believe this to be an error, please notify the tournament manager.';
+                        break;
+                    }
                     $db->query(
                         'INSERT INTO scores SET vin=?, program_balls_low=?,
                         program_balls_high=?, program_bonus_low=?, program_bonus_high=?,
@@ -70,6 +75,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                     break;
                 case 'driver':
                     $friendly = "Robot Skills";
+                    if ($teams[0]['driver_score'] > $score) {
+                        $message = 'Your score was not submitted because the current highest '.$friendly.' score ('.$teams[0]['driver_score'].') in the database for that team ('.$number.'). was less than your total ('.$score.'.) If you believe this to be an error, please notify the tournament manager.';
+                        break;
+                    }
                     $db->query(
                         'INSERT INTO scores SET vin=?, driver_balls_low=?,
                         driver_balls_high=?, driver_bonus_low=?, driver_bonus_high=?,
