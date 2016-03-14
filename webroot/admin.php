@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 $message = 'Please enter a team number.';
                 break;
             }
-            $score = $_POST['balls-low'] + 5 * $_POST['balls-high'] + 2 * $_POST['bonus-low'] + 10 * $_POST['bonus-high'];
+            $score = $_POST['balls-low'] + (5 * $_POST['balls-high']) + (2 * $_POST['bonus-low']) + (10 * $_POST['bonus-high']);
             if ($_POST['balls-low'] + $_POST['balls-high'] > 94) {
                 $message = 'Your score was not submitted because you reported a total of '.($_POST['balls-low'] + $_POST['balls-high']).' balls scored, but there\'s only 94 total.';
                 $prefill_team = $number;
