@@ -5,7 +5,7 @@ require_once "../php/authenticate.php";
 require_once "../php/db.class.php";
 
 $db = new Db();
-$teams = $db->query('SELECT *, (program_score+driver_score) FROM scores ORDER BY (program_score+driver_score) DESC, program_score DESC');
+$teams = $db->query('SELECT *, (program_score+driver_score) FROM scores ORDER BY (program_score+driver_score) DESC, program_score DESC, (program_bonus_low+program_bonus_high) DESC, (driver_bonus_low+driver_bonus_high) DESC');
 $data = '{data}';
 for ($i = 0; $i < count($teams); $i++) {
     $data = str_replace('{data}', '<tr><td>'.($i + 1).'</td><td>'.$teams[$i]['vin'].'</td><td>'.$teams[$i]['program_balls_low'].'</td><td>'.$teams[$i]['program_balls_high'].'</td><td>'.$teams[$i]['program_bonus_low'].'</td><td>'.$teams[$i]['program_bonus_high'].'</td><td>'.$teams[$i]['program_score'].'</td><td>'.$teams[$i]['driver_balls_low'].'</td><td>'.$teams[$i]['driver_balls_high'].'</td><td>'.$teams[$i]['driver_bonus_low'].'</td><td>'.$teams[$i]['driver_bonus_high'].'</td><td>'.$teams[$i]['driver_score'].'</td><td>'.$teams[$i]['(program_score+driver_score)'].'</td></tr>{data}', $data);
