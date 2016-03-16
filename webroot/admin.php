@@ -19,7 +19,6 @@ $message = '';
 $prefill_team = '';
 $prefill_robotchecked = false;
 $teams = $db->query('SELECT program_score, driver_score FROM scores WHERE vin=(?) ORDER BY (program_score+driver_score) DESC, program_score DESC LIMIT 1', 'i', $_POST['team']);
-var_dump($teams[0]['program_score']);
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     switch ($_POST['action']) {
         case 'report-score':
