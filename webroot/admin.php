@@ -19,6 +19,7 @@ $message = '';
 $prefill_team = '';
 $prefill_robotchecked = false;
 $teams = $db->query('SELECT program_score, driver_score FROM scores WHERE vin=(?) ORDER BY (program_score+driver_score) DESC, program_score DESC LIMIT 1', 'i', $_POST['team']);
+var_dump($teams[0]['program_score']);
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     switch ($_POST['action']) {
         case 'report-score':
@@ -48,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 case 'program':
                     $friendly = "Programming Skills";
                     if ($teams[0]['program_score'] > $score) {
-                        $message = 'Your score was not submitted because the current highest '.$friendly.' score ('.$teams[0]['program_score'].') in the database for that team ('.$number.'). was less than your total ('.$score.'.) If you believe this to be an error, please notify the tournament manager.';
+                        $message = 'Your score was not submitted because a higher score is already in the database.\n\n'.$friendly.' for team '.$_POST['team'].'\nPrevious score: '.$teams[0]['program_score'].'\nYour input: '.$score;
                         break;
                     }
                     $db->query(
@@ -76,7 +77,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 case 'driver':
                     $friendly = "Robot Skills";
                     if ($teams[0]['driver_score'] > $score) {
-                        $message = 'Your score was not submitted because the current highest '.$friendly.' score ('.$teams[0]['driver_score'].') in the database for that team ('.$number.'). was less than your total ('.$score.'.) If you believe this to be an error, please notify the tournament manager.';
+                        $message = 'Your score was not submitted because a higher score is already in the database.\n\n'.$friendly.' for team '.$_POST['team'].'\nPrevious score: '.$teams[0]['program_score'].'\nYour input: '.$score;
                         break;
                     }
                     $db->query(
@@ -103,7 +104,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                     $friendly = "unknown";
                     break;
             }
-            $message = 'Your '.$friendly.' score of '.$score.' for team '.$number.' was successfully submitted.';
+            if ($message === "") {
+                $message = 'Your '.$friendly.' score of '.$score.' for team '.$number.' was successfully submitted.';
+            }
             break;
         case 'update-numqualifying':
             $db->query('UPDATE settings SET value=(?) WHERE setting=0', 'i', $_POST['number']);
