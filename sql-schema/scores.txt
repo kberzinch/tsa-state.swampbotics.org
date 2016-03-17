@@ -5,12 +5,12 @@ CREATE TABLE `scores` (
 	`program_balls_high` TINYINT(3) UNSIGNED NULL DEFAULT NULL,
 	`program_bonus_low` TINYINT(3) UNSIGNED NULL DEFAULT NULL,
 	`program_bonus_high` TINYINT(3) UNSIGNED NULL DEFAULT NULL,
-	`program_score` TINYINT(3) UNSIGNED NULL DEFAULT NULL,
+	`program_score` INT(3) UNSIGNED NULL DEFAULT NULL,
 	`driver_balls_low` TINYINT(3) UNSIGNED NULL DEFAULT NULL,
 	`driver_balls_high` TINYINT(3) UNSIGNED NULL DEFAULT NULL,
 	`driver_bonus_low` TINYINT(3) UNSIGNED NULL DEFAULT NULL,
 	`driver_bonus_high` TINYINT(3) UNSIGNED NULL DEFAULT NULL,
-	`driver_score` TINYINT(3) UNSIGNED NULL DEFAULT NULL,
+	`driver_score` INT(3) UNSIGNED NULL DEFAULT NULL,
 	PRIMARY KEY (`vin`),
 	UNIQUE INDEX `vin` (`vin`)
 )
