@@ -18,7 +18,7 @@ $db = new Db();
 $message = '';
 $prefill_team = '';
 $prefill_robotchecked = false;
-$teams = $db->query('SELECT vin, program_score, driver_score FROM scores WHERE vin=(?)', 'i', $_POST['team']);
+$teams = $db->query('SELECT vin, program_score, driver_score FROM scores WHERE vin=(?)', 's', $_POST['team']);
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     switch ($_POST['action']) {
         case 'report-score':
@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             switch ($_POST['type']) {
                 case 'program':
                     $friendly = "Programming Skills";
-                    if ($teams[0]['vin'] === $_POST['team'] && $teams[0]['program_score'] > $score) {
+                    if ($teams[0]['program_score'] > $score) {
                         $message = 'Your score was not submitted because a higher score is already in the database.\n\n'.$friendly.' for team '.$_POST['team'].'\nPrevious score: '.$teams[0]['program_score'].'\nYour input: '.$score;
                         break;
                     }
@@ -75,7 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                     break;
                 case 'driver':
                     $friendly = "Robot Skills";
-                    if ($teams[0]['vin'] === $_POST['team'] && $teams[0]['driver_score'] > $score) {
+                    if ($teams[0]['driver_score'] > $score) {
                         $message = 'Your score was not submitted because a higher score is already in the database.\n\n'.$friendly.' for team '.$_POST['team'].'\nPrevious score: '.$teams[0]['program_score'].'\nYour input: '.$score;
                         break;
                     }
