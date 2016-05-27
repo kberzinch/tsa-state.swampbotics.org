@@ -64,7 +64,7 @@ final class Db
                 );
                 $args_ref = array();
                 foreach ($args as $k => &$arg) {
-                        $args_ref[$k] = &$arg;
+                    $args_ref[$k] = &$arg;
                 }
                 if (!call_user_func_array(array($query, 'bind_param'), $args_ref)) {
                     $this->handleError('Binding parameters');
@@ -96,7 +96,6 @@ final class Db
 
             $query->close();
             return $result;
-
         } else {
             $this->handleError('Preparing query');
         }
