@@ -2,7 +2,7 @@
 
 namespace TSAState;
 
-require_once $_SERVER['DOCUMENT_ROOT'].'/../../'.$_SERVER["SERVER_NAME"].'.config.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/config.php';
 
 global $CONFIG;
 
