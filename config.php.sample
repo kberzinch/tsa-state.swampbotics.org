@@ -1,0 +1,9 @@
+<?php
+namespace TSAState;
+
+global $CONFIG;
+
+$CONFIG['database']['name'] = 'tsa-state';
+$CONFIG['database']['host'] = 'localhost';
+$CONFIG['database']['username'] = 'tsa-state';
+$CONFIG['database']['password'] = 'your-password-here';
